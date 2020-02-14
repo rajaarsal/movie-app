@@ -1,38 +1,160 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+h1 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.movieCard {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.movieCard_item {
+  flex: 0 0 47%;
+  margin: 1%;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.movieCard img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.movieCard_desc {
+  padding: 15px;
+}
+
+.movieCard_title {
+  font-weight: bold;
+}
+
+.movieCard_genres {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.movieCard_genres--item {
+  padding: 5px 12px;
+  background: #eee;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: #000;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.overlay.block img {
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .movieCard_item {
+    flex: 0 0 31%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container {
+    width: 100%;
+    min-width: 1000px;
+    max-width: 1220px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  .topNav {
+    height: 48px;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #fff;
+  }
+
+  .topNav .container {
+    display: flex;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movieCard_item {
+    flex: 0 0 24%;
+    margin: 0.5%;
+  }
+
+  .genres {
+    display: none;
+    position: absolute;
+    background: white;
+    padding: 10px;
+    list-style: none;
+    border: 1px solid black;
+    text-align: left;
+    min-width: 162px;
+    top: 100%;
+    margin: 0;
+    left: 0;
+  }
+
+  .topNav button {
+    background: 0;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    flex: 0 0 7%;
+    border: 0;
+    transition: all 0.3s ease-out;
+    position: relative;
+  }
+
+  .topNav button:hover {
+    background: #000;
+    color: #fff;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+  }
+
+  .topNav button label:hover {
+    cursor: pointer;
+  }
+
+  .topNav button:hover .genres {
+    display: block;
+    color: #000;
   }
 }
